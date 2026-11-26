@@ -435,15 +435,19 @@ function handleSubmit(event) {
   document.getElementById("list-notice").textContent = "";
 }
 
-// Check a field again each time the user types or leaves it,
-// so the error goes away as soon as it is fixed
+// After the user has pressed Send and sees an error, check that field
+// again each time the user types, so the error goes away as soon as it is fixed.
+// (We do NOT check when the user leaves a field. An error popping up at that
+// moment moved the Send button down and the first click was lost.)
 function watchField(field) {
   var input = document.getElementById(field.id);
-  input.addEventListener("blur", function () {
-    validateField(field);
-  });
   input.addEventListener("input", function () {
-    // only re-check fields that already show an error
+    if (input.classList.contains("invalid")) {
+      validateField(field);
+    }
+  });
+  // select menus and date boxes fire "change" instead of "input" in some browsers
+  input.addEventListener("change", function () {
     if (input.classList.contains("invalid")) {
       validateField(field);
     }
