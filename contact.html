@@ -6,6 +6,7 @@
   <meta name="description" content="Send a pre-order request or question to North Star Bakery. Find our hours and address.">
   <title>Contact and Pre-Order | North Star Bakery</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -28,19 +29,23 @@
       <h2>Send Us a Request</h2>
       <p>Fill out the form to pre-order or ask us a question. We will reply by email within one day. There is no online payment. You pay when you pick up.</p>
 
-      <form action="#" method="post">
+      <p id="list-notice" class="message" role="status"></p>
+
+      <form action="#" method="post" id="order-form" novalidate>
 
         <fieldset>
           <legend>Your Information</legend>
 
           <p>
             <label for="name">Your name (required)</label><br>
-            <input type="text" id="name" name="name" required minlength="2" maxlength="60" pattern="[^0-9]+" title="Please do not use numbers in your name">
+            <input type="text" id="name" aria-describedby="name-error" name="name" required minlength="2" maxlength="60" pattern="[^0-9]+" title="Please do not use numbers in your name">
+            <span class="error" id="name-error"></span>
           </p>
 
           <p>
             <label for="email">Your email (required)</label><br>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" aria-describedby="email-error" name="email" required>
+            <span class="error" id="email-error"></span>
           </p>
         </fieldset>
 
@@ -49,33 +54,38 @@
 
           <p>
             <label for="pickup">Pickup date (required)</label><br>
-            <input type="date" id="pickup" name="pickup" required>
+            <input type="date" id="pickup" aria-describedby="pickup-error" name="pickup" required>
+            <span class="error" id="pickup-error"></span>
           </p>
 
           <p>
             <label for="request-type">Request type (required)</label><br>
-            <select id="request-type" name="request-type" required>
+            <select id="request-type" aria-describedby="request-type-error" name="request-type" required>
               <option value="">Please choose one</option>
               <option value="pre-order">Pre-order</option>
               <option value="event-order">Event or large order</option>
               <option value="general-question">General question</option>
             </select>
+            <span class="error" id="request-type-error"></span>
           </p>
 
           <p>
             <label for="details">Item details (required)</label><br>
-            <textarea id="details" name="details" rows="5" cols="40" required minlength="5" maxlength="500" placeholder="Example: 2 Signature Loaves and 1 dozen cupcakes"></textarea>
+            <textarea id="details" aria-describedby="details-error" name="details" rows="5" cols="40" required minlength="5" maxlength="500" placeholder="Example: 2 Signature Loaves and 1 dozen cupcakes"></textarea>
+            <span class="error" id="details-error"></span>
           </p>
 
           <p>
             <label for="allergies">Allergy notes (optional)</label><br>
-            <textarea id="allergies" name="allergies" rows="3" cols="40" maxlength="300" placeholder="Example: No nuts, please"></textarea>
+            <textarea id="allergies" aria-describedby="allergies-error" name="allergies" rows="3" cols="40" maxlength="300" placeholder="Example: No nuts, please"></textarea>
+            <span class="error" id="allergies-error"></span>
           </p>
         </fieldset>
 
         <p>
           <button type="submit">Send My Request</button>
         </p>
+        <p id="form-message" class="message" role="status"></p>
 
       </form>
     </section>

@@ -6,6 +6,7 @@
   <meta name="description" content="See the breads, pastries, and cakes at North Star Bakery, with price ranges. Pre-order for pickup.">
   <title>Our Products | North Star Bakery</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -54,6 +55,35 @@
       <h2>Cakes</h2>
       <p>Birthday cakes, small celebration cakes, and cupcakes. We can write a message on top. Event planners, please ask us about large orders.</p>
       <p>Price range: $30 to $90 for cakes, $24 to $40 per dozen cupcakes</p>
+    </section>
+
+    <section class="wide">
+      <h2>Build Your Pre-Order List</h2>
+      <p>Pick the items you want. Your list is saved on this device, so you can come back later. When you are ready, we will put your list on the pre-order form for you.</p>
+
+      <noscript>
+        <p>Please turn on JavaScript to use the list builder. You can still type your items on the <a href="contact.html">contact page</a>.</p>
+      </noscript>
+
+      <div class="builder">
+        <div>
+          <h3>Our Items</h3>
+          <p>
+            <label for="category-filter">Show:</label><br>
+            <select id="category-filter"></select>
+          </p>
+          <ul id="product-list" class="plain-list"></ul>
+        </div>
+
+        <div>
+          <h3>My Pre-Order List (<span id="list-count">0</span>)</h3>
+          <p id="list-message" class="message" role="status"></p>
+          <ul id="my-list"></ul>
+          <p id="list-total"><strong></strong></p>
+          <p><button type="button" id="clear-list">Clear My List</button></p>
+          <p><a href="contact.html">Send my list to the pre-order form</a></p>
+        </div>
+      </div>
     </section>
 
     <section class="wide">

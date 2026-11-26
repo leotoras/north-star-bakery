@@ -221,6 +221,75 @@ button:hover {
   background-color: #2F2A26;
 }
 
+/* ---------- List builder (products.html) ---------- */
+.builder {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.builder > div {
+  flex: 1;
+}
+
+.plain-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #D88C5A;
+  max-width: none;
+}
+
+/* a product that is already in the list */
+button.selected {
+  background-color: #D88C5A;
+  color: #2F2A26;
+}
+
+button.selected:hover {
+  background-color: #2F2A26;
+  color: #FFF8F0;
+}
+
+#list-total {
+  font-weight: bold;
+}
+
+/* ---------- Messages and form errors ---------- */
+.message:not(:empty) {
+  padding: 0.75rem;
+  background-color: #D88C5A;
+  color: #2F2A26;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.error {
+  display: block;
+  margin-top: 0.3rem;
+  color: #6B3E26;
+  font-weight: bold;
+}
+
+.error:not(:empty)::before {
+  content: "\26A0  ";   /* warning sign */
+}
+
+input.invalid,
+select.invalid,
+textarea.invalid {
+  border: 3px dashed #2F2A26;
+}
+
 /* ---------- Footer ---------- */
 footer {
   padding: 1.5rem 1rem;
@@ -277,6 +346,12 @@ footer p {
   section {
     flex: 1 1 40%;
     padding: 1.75rem;
+  }
+
+  /* the two lists in the list builder sit side by side */
+  .builder {
+    flex-direction: row;
+    gap: 2rem;
   }
 
   /* these sections take the whole row */
